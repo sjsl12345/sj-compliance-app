@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import BetaBanner from '../components/BetaBanner'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { supabase } from '../lib/supabase'
@@ -44,7 +45,9 @@ export default function Register() {
   return (
     <>
       <Head><title>Get started — SJ Remote Solutions</title></Head>
-      <div className="min-h-screen gradient-bg flex items-center justify-center p-6">
+      <div className="min-h-screen gradient-bg flex flex-col">
+      <BetaBanner />
+      <div className="flex-1 flex items-center justify-center p-6">
         <div className="w-full max-w-md">
           <div className="text-center mb-8">
             <Link href="/" className="inline-flex items-center gap-2 mb-6">

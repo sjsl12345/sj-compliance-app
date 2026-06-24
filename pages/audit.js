@@ -67,6 +67,7 @@ export default function Audit() {
     <>
       <Head><title>Compliance Check — SJ Remote Solutions</title></Head>
       <div className="min-h-screen bg-white">
+        <BetaBanner />
         {/* TOP BAR */}
         <div className="border-b border-gray-100 px-6 py-4">
           <div className="max-w-2xl mx-auto flex items-center justify-between">

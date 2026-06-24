@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import BetaBanner from '../components/BetaBanner'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { supabase } from '../lib/supabase'
@@ -56,6 +57,8 @@ export default function Dashboard() {
     <>
       <Head><title>My Compliance Dashboard — SJ Remote Solutions</title></Head>
       <div className="min-h-screen bg-gray-50">
+        {/* BETA BANNER */}
+        <BetaBanner />
         {/* NAV */}
         <nav className="bg-white border-b border-gray-100 px-6 py-4">
           <div className="max-w-5xl mx-auto flex items-center justify-between">

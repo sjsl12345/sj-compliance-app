@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import BetaBanner from '../components/BetaBanner'
 
 export default function Home() {
   return (
@@ -11,6 +12,8 @@ export default function Home() {
       </Head>
 
       <div className="min-h-screen bg-white">
+        {/* BETA BANNER */}
+        <BetaBanner />
         {/* NAV */}
         <nav className="border-b border-gray-100 px-6 py-4">
           <div className="max-w-6xl mx-auto flex items-center justify-between">
