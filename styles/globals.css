@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+body {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, #E1F5EE 0%, #F7E0E3 100%);
+}
+
+.card {
+  @apply bg-white rounded-2xl shadow-sm border border-gray-100 p-6;
+}
+
+.btn-primary {
+  @apply bg-teal-500 hover:bg-teal-600 text-white font-medium py-3 px-6 rounded-xl transition-all duration-200 inline-flex items-center gap-2;
+}
+
+.btn-secondary {
+  @apply bg-white hover:bg-gray-50 text-gray-700 font-medium py-3 px-6 rounded-xl border border-gray-200 transition-all duration-200 inline-flex items-center gap-2;
+}
+
+.input {
+  @apply w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-200 text-gray-700;
+}
+
+.label {
+  @apply block text-sm font-medium text-gray-700 mb-1;
+}
+
+.badge-red {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-700;
+}
+
+.badge-amber {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-amber-100 text-amber-700;
+}
+
+.badge-green {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-teal-50 text-teal-700;
+}
