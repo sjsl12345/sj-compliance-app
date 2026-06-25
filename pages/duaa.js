@@ -1,9 +1,9 @@
 import Head from 'next/head'
-import BetaBanner from '../../components/BetaBanner'
+import BetaBanner from '../components/BetaBanner'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { supabase } from '../../lib/supabase'
-import { DUAA_QUESTIONS, calculateDUAAScore } from '../../lib/duaa-questions'
+import { supabase } from '../lib/supabase'
+import { DUAA_QUESTIONS, calculateDUAAScore } from '../lib/duaa-questions'
 
 const TOTAL = DUAA_QUESTIONS.length
 
