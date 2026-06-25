@@ -95,20 +95,25 @@ export default function Audit() {
     setSaving(true)
     try {
       const result = calculateScore(finalAnswers)
-      if (agency) {
-        await supabase.from('audits').delete().eq('agency_id', agency.id).eq('completed', false)
-        await supabase.from('audits').insert({
-          agency_id: agency.id,
-          user_id: user.id,
-          answers: finalAnswers,
-          score: result.percentage,
-          risk_level: result.riskLevel,
-          completed: true,
-        })
+      // Insert regardless of agency — always use user_id
+      const { data, error } = await supabase.from('audits').insert({
+        agency_id: agency?.id || null,
+        user_id: user.id,
+        answers: finalAnswers,
+        score: result.percentage,
+        risk_level: result.riskLevel,
+        completed: true,
+      })
+      if (error) {
+        console.error('Supabase insert error:', error)
+        alert('Save error: ' + error.message)
+        setSaving(false)
+        return
       }
       router.push('/dashboard')
     } catch (err) {
-      console.error(err)
+      console.error('Submit error:', err)
+      alert('Error: ' + err.message)
       setSaving(false)
     }
   }
