@@ -33,20 +33,40 @@ export default function Dashboard() {
       const { data: agencyData } = await supabase.from('agencies').select('*').eq('user_id', user.id).single()
       setAgency(agencyData)
       if (agencyData) {
-        // Load ADM audit
-        const { data: auditData } = await supabase.from('audits').select('*')
-          .eq('agency_id', agencyData.id).eq('completed', true)
-          .order('created_at', { ascending: false }).limit(1).single()
+        // Load ADM audit — try agency_id, fallback to user_id
+        let auditData = null
+        if (agencyData) {
+          const { data: a1 } = await supabase.from('audits').select('*')
+            .eq('agency_id', agencyData.id).eq('completed', true)
+            .order('created_at', { ascending: false }).limit(1).single()
+          auditData = a1
+        }
+        if (!auditData) {
+          const { data: a2 } = await supabase.from('audits').select('*')
+            .eq('user_id', user.id).eq('completed', true)
+            .order('created_at', { ascending: false }).limit(1).single()
+          auditData = a2
+        }
         if (auditData) {
           setAudit(auditData)
           const r = calculateScore(auditData.answers)
           setResult(r)
           setSectionScores(getSectionScores(auditData.answers))
         }
-        // Load DUAA audit
-        const { data: duaaData } = await supabase.from('duaa_audits').select('*')
-          .eq('agency_id', agencyData.id).eq('completed', true)
-          .order('created_at', { ascending: false }).limit(1).single()
+        // Load DUAA audit — try agency_id, fallback to user_id
+        let duaaData = null
+        if (agencyData) {
+          const { data: d1 } = await supabase.from('duaa_audits').select('*')
+            .eq('agency_id', agencyData.id).eq('completed', true)
+            .order('created_at', { ascending: false }).limit(1).single()
+          duaaData = d1
+        }
+        if (!duaaData) {
+          const { data: d2 } = await supabase.from('duaa_audits').select('*')
+            .eq('user_id', user.id).eq('completed', true)
+            .order('created_at', { ascending: false }).limit(1).single()
+          duaaData = d2
+        }
         if (duaaData) {
           setDuaaAudit(duaaData)
           const dr = calculateDUAAScore(duaaData.answers)
@@ -105,7 +125,10 @@ export default function Dashboard() {
                 <div style={{fontSize:'0.75rem',color:'#9B9B9B'}}>AI Compliance Dashboard</div>
               </div>
             </div>
-            <button onClick={signOut} style={{fontSize:'0.875rem',color:'#9B9B9B',background:'none',border:'none',cursor:'pointer',fontFamily:'inherit'}}>Sign out</button>
+            <div style={{display:'flex',alignItems:'center',gap:'1.25rem'}}>
+              <a href="/history" style={{fontSize:'0.875rem',color:'#3DCFBF',fontWeight:500,textDecoration:'none'}}>My History</a>
+              <button onClick={signOut} style={{fontSize:'0.875rem',color:'#9B9B9B',background:'none',border:'none',cursor:'pointer',fontFamily:'inherit'}}>Sign out</button>
+            </div>
           </div>
         </nav>
 
