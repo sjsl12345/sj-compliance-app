@@ -3,142 +3,175 @@ import Link from 'next/link'
 import BetaBanner from '../components/BetaBanner'
 
 export default function Home() {
-    return (
-          <>
-            <Head>
-              <title>AI Hiring Compliance Checker — SJ Remote Solutions</title>
-              <meta name="description" content="Free AI hiring compliance tool for UK recruitment agencies. Check your ICO ADM obligations in minutes." />
-              <meta name="viewport" content="width=device-width, initial-scale=1" />
+  return (
+    <>
+      <Head>
+        <title>AI Hiring Compliance Checker — SJ Remote Solutions</title>
+        <meta name="description" content="Free AI hiring compliance tool for UK recruitment agencies. Check your ICO ADM obligations in minutes." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </Head>
 
-      <div className="min-h-screen" style={{background:'#FAFAFA'}}>
+      <div className="min-h-screen" style={{ background: '#FAFAF9', color: '#2E2E2E' }}>
         <BetaBanner />
 
-{/* NAV */}
-        <nav style={{background:'white', borderBottom:'1px solid #F7E0E3'}} className="px-6 py-4">
-            <div className="max-w-6xl mx-auto flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{background:'#34C7B9'}}>
-                <span className="text-white font-bold text-sm">SJ</span>
-  </div>
-              <div>
-                  <div className="font-semibold text-sm" style={{color:'#1A2B2A'}}>SJ Remote Solutions</div>
-                <div className="text-xs" style={{color:'#6B7C7B'}}>AI Compliance Companion</div>
-  </div>
-  </div>
+        {/* NAV */}
+        <nav style={{ background: 'white', borderBottom: '1px solid #EBEBEB' }} className="px-6 py-5">
+          <div className="max-w-6xl mx-auto flex items-center justify-between">
             <div className="flex items-center gap-3">
-                <Link href="/login" className="text-sm font-medium" style={{color:'#6B7C7B'}}>Sign in</Link>
-              <Link href="/register" className="btn-primary text-sm py-2 px-4">Get started free</Link>
-  </div>
-  </div>
-  </nav>
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: '#2E2E2E' }}>
+                <span className="text-white font-semibold text-xs tracking-wider">SJ</span>
+              </div>
+              <div>
+                <div className="font-semibold text-sm tracking-tight" style={{ color: '#2E2E2E', fontFamily: "'Playfair Display', serif" }}>SJ Remote Solutions</div>
+                <div className="text-xs" style={{ color: '#9B9B9B', letterSpacing: '0.04em' }}>AI Governance & Compliance</div>
+              </div>
+            </div>
+            <div className="flex items-center gap-6">
+              <Link href="/login" className="text-sm font-medium" style={{ color: '#6B6B6B', letterSpacing: '0.01em' }}>Sign in</Link>
+              <Link href="/register" className="btn-primary text-sm">Get started free</Link>
+            </div>
+          </div>
+        </nav>
 
-{/* HERO */}
-        <section className="gradient-bg py-20 px-6">
-                    <div className="max-w-4xl mx-auto text-center">
-                      <div className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium mb-6" style={{background:'white', color:'#34C7B9', border:'1px solid #A8E8E3'}}>
-              <span className="w-2 h-2 rounded-full" style={{background:'#34C7B9'}}></span>
-              Free for UK recruitment agencies
-                </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight" style={{color:'#1A2B2A'}}>
+        {/* HERO */}
+        <section className="px-6 pt-24 pb-20" style={{ background: 'white' }}>
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-medium mb-10 tracking-widest uppercase" style={{ background: '#F2F2F2', color: '#6B6B6B', letterSpacing: '0.1em' }}>
+              <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#3DCFBF' }}></span>
+              Free · Built for UK Recruitment Agencies
+            </div>
+            <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(2.25rem, 5vw, 3.5rem)', fontWeight: 500, color: '#2E2E2E', lineHeight: 1.15, letterSpacing: '-0.02em', marginBottom: '1.5rem' }}>
               Is your AI hiring process<br />
-                              <span style={{color:'#34C7B9'}}>ICO compliant?</span>
-                </h1>
-            <p className="text-xl mb-8 max-w-2xl mx-auto leading-relaxed" style={{color:'#3D5250'}}>
-              The ICO's automated decision-making framework and the Data (Use and Access) Act 2025 place new obligations on recruitment agencies using AI. Find out where you stand in under 5 minutes.
-                                                                                 </p>
-                            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Link href="/register" className="btn-primary text-base">
-                                                                                                                                             Check my compliance — it's free
-                                                                                                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/></svg>
-                </Link>
-                              <Link href="/login" className="btn-secondary text-base">
-                                I already have an account
-                </Link>
-                                                                                 </div>
-                            <p className="text-sm mt-4" style={{color:'#A8B8B7'}}>No credit card. No obligation. Just clarity.</p>
-                </div>
-                </section>
+              <em style={{ color: '#3DCFBF', fontStyle: 'italic' }}>ICO compliant?</em>
+            </h1>
+            <p className="text-lg mb-10 max-w-2xl mx-auto leading-relaxed" style={{ color: '#6B6B6B', fontWeight: 300 }}>
+              The ICO's automated decision-making framework and the Data (Use and Access) Act 2025 place real obligations on recruitment agencies using AI. Know where you stand in under five minutes.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <Link href="/register" className="btn-primary">
+                Check my compliance — it's free
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+              </Link>
+              <Link href="/login" className="btn-secondary">
+                Sign in to my dashboard
+              </Link>
+            </div>
+            <p className="text-sm mt-5" style={{ color: '#9B9B9B' }}>No credit card. No obligation. Just clarity.</p>
+          </div>
+        </section>
 
-              {/* HOW IT WORKS */}
-                        <section className="py-20 px-6" style={{background:'white'}}>
-                          <div className="max-w-5xl mx-auto">
-                            <h2 className="text-3xl font-bold text-center mb-4" style={{color:'#1A2B2A'}}>How it works</h2>
-            <p className="text-center mb-12 max-w-xl mx-auto" style={{color:'#3D5250'}}>Three steps to understanding your AI hiring compliance position</p>
-            <div className="grid md:grid-cols-3 gap-8">
-                        {[
-                        { step: '01', title: 'Answer 12 questions', desc: 'Tell us how you use AI in your hiring process. Takes about 4 minutes. No technical knowledge needed.' },
-                        { step: '02', title: 'Get your risk score', desc: 'Instantly see your Red, Amber, or Green ICO ADM compliance rating with a breakdown by category.' },
-                        { step: '03', title: 'Know what to fix', desc: 'See exactly which gaps need addressing and how serious they are. Your compliance dashboard updates as you improve.' },
-                                        ].map(item => (
-                                                          <div key={item.step} className="text-center">
-                                            <div className="w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4" style={{background:'#E6F8F7'}}>
-                    <span className="font-bold text-sm" style={{color:'#34C7B9'}}>{item.step}</span>
-                          </div>
-                  <h3 className="font-semibold mb-2" style={{color:'#1A2B2A'}}>{item.title}</h3>
-                  <p className="text-sm leading-relaxed" style={{color:'#3D5250'}}>{item.desc}</p>
-                          </div>
-              ))}
-                </div>
-                </div>
-                </section>
+        {/* THIN TEAL RULE */}
+        <div style={{ height: '2px', background: 'linear-gradient(90deg, transparent 0%, #3DCFBF 30%, #3DCFBF 70%, transparent 100%)', opacity: 0.25 }} />
 
-{/* WHY IT MATTERS */}
-        <section className="py-20 px-6" style={{background:'#FDF0F2'}}>
+        {/* HOW IT WORKS */}
+        <section className="py-24 px-6" style={{ background: '#FAFAF9' }}>
           <div className="max-w-5xl mx-auto">
-                      <h2 className="text-3xl font-bold text-center mb-12" style={{color:'#1A2B2A'}}>Why this matters now</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-        {[
-        { title: 'UK GDPR Article 22', desc: 'Candidates have the right to not be subject to solely automated decisions. If your AI makes or significantly influences hiring decisions, you must tell candidates and give them the right to a human review.' },
-        { title: 'ICO ADM Framework', desc: 'The ICO has published detailed guidance on automated decision-making in recruitment. Non-compliance can result in enforcement action, fines, and reputational damage.' },
-        { title: 'Data (Use and Access) Act 2025', desc: 'A new complaints process came into force on 19 June 2026. Candidates now have clearer routes to challenge AI-based hiring decisions.' },
-        { title: 'Your clients expect it', desc: 'End-client organisations increasingly require their recruitment partners to demonstrate AI compliance as part of supplier due diligence.' },
-                        ].map(item => (
-                                          <div key={item.title} className="card">
-                            <div className="flex items-start gap-3">
-                              <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{background:'#34C7B9'}}>
-                      <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/></svg>
-          </div>
-                    <div>
-                                <h3 className="font-semibold mb-1" style={{color:'#1A2B2A'}}>{item.title}</h3>
-                      <p className="text-sm leading-relaxed" style={{color:'#3D5250'}}>{item.desc}</p>
-          </div>
-          </div>
-          </div>
+            <div className="text-center mb-16">
+              <p className="section-label mb-3">Process</p>
+              <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: '2rem', fontWeight: 500, color: '#2E2E2E' }}>How it works</h2>
+            </div>
+            <div className="grid md:grid-cols-3 gap-12">
+              {[
+                { step: '01', title: 'Answer 12 questions', desc: 'Tell us how AI features in your hiring process. Plain English throughout — no technical knowledge needed. Takes about four minutes.' },
+                { step: '02', title: 'Get your risk score', desc: 'Receive an instant Red, Amber or Green ICO ADM compliance rating with a breakdown by category so you know exactly where the gaps are.' },
+                { step: '03', title: 'Know what to fix', desc: 'See a prioritised list of compliance gaps with guidance on severity. Your dashboard updates as your position improves.' },
+              ].map(item => (
+                <div key={item.step} className="text-center">
+                  <div className="mb-5">
+                    <span style={{ fontFamily: "'Playfair Display', serif", fontSize: '2.5rem', fontWeight: 400, color: '#EBEBEB', letterSpacing: '-0.02em' }}>{item.step}</span>
+                  </div>
+                  <div className="teal-rule mx-auto" />
+                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: '1.1rem', fontWeight: 500, color: '#2E2E2E', marginBottom: '0.75rem' }}>{item.title}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: '#6B6B6B', fontWeight: 300 }}>{item.desc}</p>
+                </div>
               ))}
-                </div>
-                </div>
-                </section>
+            </div>
+          </div>
+        </section>
 
-{/* CTA */}
-        <section className="py-20 px-6" style={{background:'white'}}>
+        {/* WHY IT MATTERS */}
+        <section className="py-24 px-6" style={{ background: 'white' }}>
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-16">
+              <p className="section-label mb-3">The legal context</p>
+              <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: '2rem', fontWeight: 500, color: '#2E2E2E' }}>Why this matters now</h2>
+            </div>
+            <div className="grid md:grid-cols-2 gap-5">
+              {[
+                {
+                  title: 'UK GDPR Article 22',
+                  desc: 'Candidates have the right not to be subject to solely automated decisions. If AI makes or significantly influences hiring decisions, you must disclose this and provide a route to human review.',
+                },
+                {
+                  title: 'ICO ADM Framework',
+                  desc: 'The ICO has published detailed guidance on automated decision-making in recruitment. Non-compliance can result in enforcement action, fines, and reputational damage.',
+                },
+                {
+                  title: 'Data (Use and Access) Act 2025',
+                  desc: 'A formal complaints and redress process came into force on 19 June 2026. Candidates now have clearer, stronger routes to challenge AI-based hiring decisions directly.',
+                  highlight: true,
+                },
+                {
+                  title: 'Client due diligence',
+                  desc: 'End-client organisations increasingly require their recruitment partners to demonstrate AI governance as part of supplier qualification. Compliance is becoming table stakes.',
+                },
+              ].map(item => (
+                <div key={item.title} className="card" style={item.highlight ? { borderColor: '#3DCFBF', borderWidth: '1.5px' } : {}}>
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 mt-1">
+                      {item.highlight
+                        ? <span style={{ display: 'inline-block', width: 8, height: 8, borderRadius: '50%', background: '#3DCFBF' }} />
+                        : <span style={{ display: 'inline-block', width: 8, height: 8, borderRadius: '50%', background: '#EBEBEB' }} />
+                      }
+                    </div>
+                    <div>
+                      <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: '1rem', fontWeight: 500, color: '#2E2E2E', marginBottom: '0.5rem' }}>{item.title}</h3>
+                      {item.highlight && <span style={{ fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#3DCFBF', display: 'block', marginBottom: '0.5rem' }}>In force now</span>}
+                      <p className="text-sm leading-relaxed" style={{ color: '#6B6B6B', fontWeight: 300 }}>{item.desc}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="py-24 px-6" style={{ background: '#2E2E2E' }}>
           <div className="max-w-2xl mx-auto text-center">
-                      <h2 className="text-3xl font-bold mb-4" style={{color:'#1A2B2A'}}>Ready to find out where you stand?</h2>
-            <p className="mb-8" style={{color:'#3D5250'}}>Free, plain-English, built specifically for UK recruitment agencies.</p>
-            <Link href="/register" className="btn-primary text-base">
-                        Start your free compliance check
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/></svg>
-          </Link>
+            <div className="teal-rule mx-auto" style={{ marginBottom: '2rem' }} />
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: '2rem', fontWeight: 400, color: 'white', marginBottom: '1rem', lineHeight: 1.25 }}>
+              Ready to find out<br />where you stand?
+            </h2>
+            <p className="mb-8 text-sm" style={{ color: '#9B9B9B', fontWeight: 300, letterSpacing: '0.01em' }}>
+              Free, plain-English, built specifically for UK recruitment agencies.
+            </p>
+            <Link href="/register" className="btn-teal">
+              Start your free compliance check
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+            </Link>
           </div>
-          </section>
+        </section>
 
-{/* FOOTER */}
-        <footer className="py-8 px-6" style={{borderTop:'1px solid #F7E0E3', background:'#FDF0F2'}}>
+        {/* FOOTER */}
+        <footer className="py-8 px-6" style={{ borderTop: '1px solid #EBEBEB', background: 'white' }}>
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-                      <div className="flex items-center gap-2">
-                        <div className="w-6 h-6 rounded flex items-center justify-center" style={{background:'#34C7B9'}}>
-                <span className="text-white font-bold text-xs">SJ</span>
-          </div>
-              <span className="text-sm" style={{color:'#6B7C7B'}}>SJ Remote Solutions · AI Governance & Compliance</span>
-          </div>
-            <div className="text-sm" style={{color:'#6B7C7B'}}>
-              <a href="mailto:stephanie@sjremotesolutions.co.uk" style={{color:'#34C7B9'}}>stephanie@sjremotesolutions.co.uk</a>
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 rounded flex items-center justify-center" style={{ background: '#2E2E2E' }}>
+                <span className="text-white font-semibold text-xs">SJ</span>
+              </div>
+              <span className="text-sm" style={{ color: '#9B9B9B', fontFamily: "'Playfair Display', serif", fontStyle: 'italic' }}>SJ Remote Solutions</span>
+            </div>
+            <div className="text-xs" style={{ color: '#9B9B9B', letterSpacing: '0.03em' }}>
+              <a href="mailto:stephanie@sjremotesolutions.co.uk" style={{ color: '#3DCFBF' }}>stephanie@sjremotesolutions.co.uk</a>
               <span className="mx-2">·</span>
-              <a href="https://sjremotesolutions.co.uk" style={{color:'#34C7B9'}}>sjremotesolutions.co.uk</a>
+              <a href="https://sjremotesolutions.co.uk" style={{ color: '#3DCFBF' }}>sjremotesolutions.co.uk</a>
+            </div>
           </div>
-          </div>
-          </footer>
-          </div>
-          </>
+        </footer>
+      </div>
+    </>
   )
 }

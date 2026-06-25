@@ -1,8 +1,12 @@
 import Head from 'next/head'
+import BetaBanner from '../components/BetaBanner'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { supabase } from '../lib/supabase'
 import { AUDIT_QUESTIONS, SECTIONS, calculateScore } from '../lib/questions'
+
+const PF = { fontFamily: "'Playfair Display', Georgia, serif" }
+const DM = { fontFamily: "'DM Sans', 'Segoe UI', sans-serif" }
 
 export default function Audit() {
   const router = useRouter()
@@ -20,16 +24,14 @@ export default function Audit() {
 
   const question = AUDIT_QUESTIONS[currentQ]
   const total = AUDIT_QUESTIONS.length
-  const progress = Math.round(((currentQ) / total) * 100)
-  const currentSection = question?.section
-  const sectionQs = AUDIT_QUESTIONS.filter(q => q.section === currentSection)
-  const sectionIndex = SECTIONS.indexOf(currentSection)
+  const progress = Math.round((currentQ / total) * 100)
+  const sectionIndex = SECTIONS.indexOf(question?.section)
 
   function answer(value) {
     const newAnswers = { ...answers, [question.id]: value }
     setAnswers(newAnswers)
     if (currentQ < total - 1) {
-      setTimeout(() => setCurrentQ(q => q + 1), 300)
+      setTimeout(() => setCurrentQ(q => q + 1), 200)
     } else {
       submitAudit(newAnswers)
     }
@@ -40,13 +42,13 @@ export default function Audit() {
     try {
       const result = calculateScore(finalAnswers)
       const { data: agency } = await supabase.from('agencies').select('id').eq('user_id', user.id).single()
-      const { data: audit } = await supabase.from('audits').insert({
+      await supabase.from('audits').insert({
         agency_id: agency.id,
         answers: finalAnswers,
         score: result.percentage,
         risk_level: result.riskLevel,
         completed: true,
-      }).select().single()
+      })
       router.push('/dashboard')
     } catch (err) {
       console.error(err)
@@ -55,10 +57,10 @@ export default function Audit() {
   }
 
   if (!user || !question) return (
-    <div className="min-h-screen gradient-bg flex items-center justify-center">
-      <div className="text-center">
-        <div className="w-8 h-8 border-2 border-teal-500 border-t-transparent rounded-full animate-spin mx-auto mb-3"></div>
-        <p className="text-gray-600 text-sm">{saving ? 'Saving your results...' : 'Loading...'}</p>
+    <div style={{ minHeight: '100vh', background: '#FAFAF9', display: 'flex', alignItems: 'center', justifyContent: 'center', ...DM }}>
+      <div style={{ textAlign: 'center' }}>
+        <div style={{ width: 32, height: 32, border: '2px solid #3DCFBF', borderTopColor: 'transparent', borderRadius: '50%', animation: 'spin 0.8s linear infinite', margin: '0 auto 1rem' }} />
+        <p style={{ color: '#9B9B9B', fontSize: '0.9rem' }}>{saving ? 'Saving your results…' : 'Loading…'}</p>
       </div>
     </div>
   )
@@ -66,73 +68,97 @@ export default function Audit() {
   return (
     <>
       <Head><title>Compliance Check — SJ Remote Solutions</title></Head>
-      <div className="min-h-screen bg-white">
+      <div style={{ minHeight: '100vh', background: '#FAFAF9', ...DM }}>
         <BetaBanner />
+
         {/* TOP BAR */}
-        <div className="border-b border-gray-100 px-6 py-4">
-          <div className="max-w-2xl mx-auto flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <div className="w-7 h-7 bg-teal-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xs">SJ</span>
+        <div style={{ background: 'white', borderBottom: '1px solid #EBEBEB', padding: '1rem 1.5rem' }}>
+          <div style={{ maxWidth: 640, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+              <div style={{ width: 30, height: 30, background: '#2E2E2E', borderRadius: 7, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <span style={{ color: 'white', fontWeight: 700, fontSize: 11 }}>SJ</span>
               </div>
-              <span className="text-sm font-medium text-gray-700">AI Compliance Check</span>
+              <span style={{ fontSize: '0.875rem', fontWeight: 500, color: '#2E2E2E' }}>AI Compliance Check</span>
             </div>
-            <span className="text-sm text-gray-500">{currentQ + 1} of {total}</span>
+            <span style={{ fontSize: '0.8rem', color: '#9B9B9B' }}>{currentQ + 1} of {total}</span>
           </div>
         </div>
 
         {/* PROGRESS BAR */}
-        <div className="h-1 bg-gray-100">
-          <div className="h-1 bg-teal-500 transition-all duration-500" style={{ width: `${progress}%` }}></div>
+        <div style={{ height: 2, background: '#F2F2F2' }}>
+          <div style={{ height: 2, background: '#3DCFBF', width: `${progress}%`, transition: 'width 0.4s ease' }} />
         </div>
 
-        <div className="max-w-2xl mx-auto px-6 py-12">
-          {/* SECTION BADGE */}
-          <div className="inline-flex items-center gap-2 bg-teal-50 rounded-full px-3 py-1 text-xs font-medium text-teal-700 mb-6">
-            <span className="w-1.5 h-1.5 bg-teal-500 rounded-full"></span>
-            Section {sectionIndex + 1} of {SECTIONS.length} — {currentSection}
+        <div style={{ maxWidth: 640, margin: '0 auto', padding: '3rem 1.5rem' }}>
+
+          {/* Section label */}
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: '#EAF8F6', borderRadius: 999, padding: '0.25rem 1rem', marginBottom: '2rem' }}>
+            <span style={{ width: 6, height: 6, background: '#3DCFBF', borderRadius: '50%', display: 'inline-block' }} />
+            <span style={{ fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#1A7A6E' }}>
+              Section {sectionIndex + 1} of {SECTIONS.length} — {question.section}
+            </span>
           </div>
 
-          {/* QUESTION */}
-          <h2 className="text-2xl font-bold text-gray-900 mb-4 leading-tight">{question.question}</h2>
+          {/* Question */}
+          <h2 style={{ ...PF, fontSize: '1.6rem', fontWeight: 500, color: '#2E2E2E', lineHeight: 1.3, marginBottom: '1.5rem' }}>
+            {question.question}
+          </h2>
 
+          {/* Hint */}
           {question.hint && (
-            <div className="bg-blue-50 border border-blue-100 rounded-xl p-4 mb-8">
-              <p className="text-sm text-blue-700 leading-relaxed">
-                <span className="font-medium">What this means: </span>{question.hint}
+            <div style={{ background: '#F2F2F2', borderRadius: 12, padding: '1rem 1.25rem', marginBottom: '2rem', borderLeft: '3px solid #3DCFBF' }}>
+              <p style={{ fontSize: '0.875rem', color: '#6B6B6B', lineHeight: 1.65 }}>
+                <span style={{ fontWeight: 600, color: '#4A4A4A' }}>What this means: </span>{question.hint}
               </p>
             </div>
           )}
 
-          {/* ANSWER BUTTONS */}
-          <div className="space-y-3">
+          {/* Answer buttons */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
             {[
-              { value: 'yes', label: 'Yes', desc: 'We do this / have this in place', color: 'border-teal-200 hover:border-teal-400 hover:bg-teal-50' },
-              { value: 'no', label: 'No', desc: "We don't do this / don't have this", color: 'border-red-200 hover:border-red-300 hover:bg-red-50' },
-              { value: 'unsure', label: "Not sure", desc: "I'm not certain either way", color: 'border-gray-200 hover:border-gray-300 hover:bg-gray-50' },
-            ].map(opt => (
-              <button key={opt.value} onClick={() => answer(opt.value)}
-                className={`w-full text-left p-4 rounded-xl border-2 transition-all duration-150 ${opt.color} ${answers[question.id] === opt.value ? 'ring-2 ring-teal-500' : ''}`}>
-                <div className="flex items-center gap-3">
-                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-semibold text-sm flex-shrink-0
-                    ${opt.value === 'yes' ? 'bg-teal-100 text-teal-700' : opt.value === 'no' ? 'bg-red-100 text-red-700' : 'bg-gray-100 text-gray-600'}`}>
-                    {opt.label}
-                  </div>
-                  <span className="text-gray-700">{opt.desc}</span>
-                </div>
-              </button>
-            ))}
+              { value: 'yes', label: 'Yes', desc: 'We do this / have this in place', accent: '#3DCFBF', bg: '#EAF8F6', text: '#1A7A6E' },
+              { value: 'no', label: 'No', desc: "We don't do this / don't have this", accent: '#E8909A', bg: '#FFF0F2', text: '#7A2E26' },
+              { value: 'unsure', label: 'Not sure', desc: "I'm not certain either way", accent: '#9B9B9B', bg: '#F2F2F2', text: '#4A4A4A' },
+            ].map(opt => {
+              const selected = answers[question.id] === opt.value
+              return (
+                <button key={opt.value} onClick={() => answer(opt.value)} style={{
+                  display: 'flex', alignItems: 'center', gap: '1rem',
+                  background: selected ? opt.bg : 'white',
+                  border: `1.5px solid ${selected ? opt.accent : '#EBEBEB'}`,
+                  borderRadius: 12, padding: '1rem 1.25rem',
+                  cursor: 'pointer', textAlign: 'left', transition: 'all 0.15s',
+                  boxShadow: selected ? `0 0 0 3px ${opt.accent}22` : 'none',
+                }}>
+                  <div style={{
+                    width: 40, height: 40, borderRadius: 10, flexShrink: 0,
+                    background: selected ? opt.accent : '#F2F2F2',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    fontWeight: 600, fontSize: '0.8rem',
+                    color: selected ? 'white' : '#6B6B6B',
+                    transition: 'all 0.15s',
+                  }}>{opt.label}</div>
+                  <span style={{ fontSize: '0.9rem', color: '#4A4A4A' }}>{opt.desc}</span>
+                </button>
+              )
+            })}
           </div>
 
-          {/* BACK BUTTON */}
+          {/* Back */}
           {currentQ > 0 && (
-            <button onClick={() => setCurrentQ(q => q - 1)} className="mt-6 text-sm text-gray-500 hover:text-gray-700 flex items-center gap-1">
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7"/></svg>
-              Back to previous question
+            <button onClick={() => setCurrentQ(q => q - 1)} style={{
+              marginTop: '1.5rem', fontSize: '0.85rem', color: '#9B9B9B',
+              background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 4,
+            }}>
+              ← Back to previous question
             </button>
           )}
         </div>
       </div>
+
+      <style>{`
+        @keyframes spin { to { transform: rotate(360deg); } }
+      `}</style>
     </>
   )
 }
