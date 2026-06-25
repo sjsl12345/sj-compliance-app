@@ -19,15 +19,17 @@ export default function Home() {
         {/* NAV */}
         <nav style={{ background: 'white', borderBottom: '1px solid #EBEBEB' }} className="px-6 py-5">
           <div className="max-w-6xl mx-auto flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: '#2E2E2E' }}>
-                <span className="text-white font-semibold text-xs tracking-wider">SJ</span>
-              </div>
-              <div>
-                <div className="font-semibold text-sm tracking-tight" style={{ color: '#2E2E2E', fontFamily: "'Playfair Display', serif" }}>SJ Remote Solutions</div>
-                <div className="text-xs" style={{ color: '#9B9B9B', letterSpacing: '0.04em' }}>AI Governance & Compliance</div>
-              </div>
-            </div>
+            <Link href="/" style={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none' }}>
+              <svg height="38" viewBox="0 0 340 78" role="img" style={{ display: 'block' }}>
+                <title>SJ Remote Solutions</title>
+                <style>{`.npf{font-family:'Playfair Display',Georgia,serif}`}</style>
+                <text x="26" y="62" className="npf" fontSize="70" fontWeight="700" fill="#2E2E2E" letterSpacing="-3" textAnchor="start">SJ</text>
+                <line x1="16" y1="70" x2="84" y2="70" stroke="#3DCFBF" strokeWidth="2.5" strokeLinecap="round"/>
+                <line x1="96" y1="12" x2="96" y2="66" stroke="#EBEBEB" strokeWidth="1"/>
+                <text x="108" y="37" className="npf" fontSize="21" fontWeight="700" fill="#2E2E2E" letterSpacing="3" textAnchor="start">REMOTE</text>
+                <text x="108" y="62" className="npf" fontSize="21" fontWeight="700" fill="#3DCFBF" letterSpacing="1.5" textAnchor="start">SOLUTIONS</text>
+              </svg>
+            </Link>
             <div className="flex items-center gap-6">
               <Link href="/login" className="text-sm font-medium" style={{ color: '#6B6B6B', letterSpacing: '0.01em' }}>Sign in</Link>
               <Link href="/register" className="btn-primary text-sm">Get started free</Link>
@@ -38,10 +40,7 @@ export default function Home() {
         {/* HERO */}
         <section className="px-6 pt-10 pb-14" style={{ background: 'white' }}>
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-medium mb-10 tracking-widest uppercase" style={{ background: '#F2F2F2', color: '#6B6B6B', letterSpacing: '0.1em' }}>
-              <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#3DCFBF' }}></span>
-              Free · Built for UK Recruitment Agencies
-            </div>
+
             <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(2.25rem, 5vw, 3.5rem)', fontWeight: 500, color: '#2E2E2E', lineHeight: 1.15, letterSpacing: '-0.02em', marginBottom: '1.5rem' }}>
               Is your AI hiring process<br />
               <em style={{ color: '#3DCFBF', fontStyle: 'italic' }}>ICO compliant?</em>
