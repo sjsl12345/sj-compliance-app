@@ -27,14 +27,19 @@ export default function Home() {
         {/* HERO */}
         <section className="px-6 pt-24 pb-20" style={{ background: 'white' }}>
           <div className="max-w-4xl mx-auto text-center">
-            <div style={{ marginBottom: '2.5rem', display: 'inline-block' }}>
-              <div style={{ fontFamily: "'Playfair Display', serif", lineHeight: 1, display: 'flex', alignItems: 'flex-start', gap: '0.5rem', justifyContent: 'center' }}>
-                <span style={{ fontSize: 'clamp(4rem, 10vw, 7rem)', fontWeight: 700, color: '#2E2E2E', letterSpacing: '-0.04em', lineHeight: 1 }}>SJ</span>
-                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingTop: '0.6rem' }}>
-                  <span style={{ fontSize: 'clamp(0.9rem, 2vw, 1.35rem)', fontWeight: 500, color: '#2E2E2E', letterSpacing: '0.12em', textTransform: 'uppercase', lineHeight: 1.2 }}>Remote</span>
-                  <span style={{ fontSize: 'clamp(0.9rem, 2vw, 1.35rem)', fontWeight: 500, color: '#3DCFBF', letterSpacing: '0.12em', textTransform: 'uppercase', lineHeight: 1.2 }}>Solutions</span>
-                </div>
-              </div>
+            <div style={{ marginBottom: '2rem' }}>
+              <svg width="100%" viewBox="0 0 680 320" role="img" style={{ maxWidth: 580, margin: '0 auto', display: 'block' }}>
+                <title>SJ Remote Solutions</title>
+                <style>{`@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&display=swap');.pf{font-family:'Playfair Display',Georgia,serif}`}</style>
+                <line x1="240" y1="52" x2="460" y2="52" stroke="#3DCFBF" strokeWidth="1.5" opacity="0.5"/>
+                <text x="82" y="255" className="pf" fontSize="220" fontWeight="700" fill="#2E2E2E" letterSpacing="-8" textAnchor="middle">SJ</text>
+                <line x1="40" y1="270" x2="168" y2="270" stroke="#3DCFBF" strokeWidth="3" strokeLinecap="round"/>
+                <line x1="198" y1="80" x2="198" y2="265" stroke="#EBEBEB" strokeWidth="1"/>
+                <text x="224" y="158" className="pf" fontSize="58" fontWeight="700" fill="#2E2E2E" letterSpacing="6" textAnchor="start">REMOTE</text>
+                <text x="224" y="228" className="pf" fontSize="58" fontWeight="700" fill="#3DCFBF" letterSpacing="3" textAnchor="start">SOLUTIONS</text>
+                <line x1="240" y1="278" x2="460" y2="278" stroke="#3DCFBF" strokeWidth="1.5" opacity="0.5"/>
+                <text x="224" y="302" className="pf" fontSize="13" fontWeight="400" fill="#9B9B9B" letterSpacing="3" textAnchor="start" fontStyle="italic">AI Governance &amp; Compliance</text>
+              </svg>
             </div>
             <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(2.25rem, 5vw, 3.5rem)', fontWeight: 500, color: '#2E2E2E', lineHeight: 1.15, letterSpacing: '-0.02em', marginBottom: '1.5rem' }}>
               Is your AI hiring process<br />
