@@ -18,29 +18,23 @@ export default function Home() {
 
         {/* NAV */}
         <nav style={{ background: 'white', borderBottom: '1px solid #EBEBEB' }} className="px-6 py-5">
-          <div className="max-w-6xl mx-auto flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: '#2E2E2E' }}>
-                <span className="text-white font-semibold text-xs tracking-wider">SJ</span>
-              </div>
-              <div>
-                <div className="font-semibold text-sm tracking-tight" style={{ color: '#2E2E2E', fontFamily: "'Playfair Display', serif" }}>SJ Remote Solutions</div>
-                <div className="text-xs" style={{ color: '#9B9B9B', letterSpacing: '0.04em' }}>AI Governance & Compliance</div>
-              </div>
-            </div>
-            <div className="flex items-center gap-6">
-              <Link href="/login" className="text-sm font-medium" style={{ color: '#6B6B6B', letterSpacing: '0.01em' }}>Sign in</Link>
-              <Link href="/register" className="btn-primary text-sm">Get started free</Link>
-            </div>
+          <div className="max-w-6xl mx-auto flex items-center justify-end gap-6">
+            <Link href="/login" className="text-sm font-medium" style={{ color: '#6B6B6B', letterSpacing: '0.01em' }}>Sign in</Link>
+            <Link href="/register" className="btn-primary text-sm">Get started free</Link>
           </div>
         </nav>
 
         {/* HERO */}
         <section className="px-6 pt-24 pb-20" style={{ background: 'white' }}>
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-medium mb-10 tracking-widest uppercase" style={{ background: '#F2F2F2', color: '#6B6B6B', letterSpacing: '0.1em' }}>
-              <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#3DCFBF' }}></span>
-              Free · Built for UK Recruitment Agencies
+            <div style={{ marginBottom: '2.5rem', display: 'inline-block' }}>
+              <div style={{ fontFamily: "'Playfair Display', serif", lineHeight: 1, display: 'flex', alignItems: 'flex-start', gap: '0.5rem', justifyContent: 'center' }}>
+                <span style={{ fontSize: 'clamp(4rem, 10vw, 7rem)', fontWeight: 700, color: '#2E2E2E', letterSpacing: '-0.04em', lineHeight: 1 }}>SJ</span>
+                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingTop: '0.6rem' }}>
+                  <span style={{ fontSize: 'clamp(0.9rem, 2vw, 1.35rem)', fontWeight: 500, color: '#2E2E2E', letterSpacing: '0.12em', textTransform: 'uppercase', lineHeight: 1.2 }}>Remote</span>
+                  <span style={{ fontSize: 'clamp(0.9rem, 2vw, 1.35rem)', fontWeight: 500, color: '#3DCFBF', letterSpacing: '0.12em', textTransform: 'uppercase', lineHeight: 1.2 }}>Solutions</span>
+                </div>
+              </div>
             </div>
             <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(2.25rem, 5vw, 3.5rem)', fontWeight: 500, color: '#2E2E2E', lineHeight: 1.15, letterSpacing: '-0.02em', marginBottom: '1.5rem' }}>
               Is your AI hiring process<br />
