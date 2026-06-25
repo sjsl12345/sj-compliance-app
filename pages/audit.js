@@ -99,6 +99,7 @@ export default function Audit() {
         await supabase.from('audits').delete().eq('agency_id', agency.id).eq('completed', false)
         await supabase.from('audits').insert({
           agency_id: agency.id,
+          user_id: user.id,
           answers: finalAnswers,
           score: result.percentage,
           risk_level: result.riskLevel,
