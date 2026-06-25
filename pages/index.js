@@ -18,22 +18,9 @@ export default function Home() {
 
         {/* NAV */}
         <nav style={{ background: 'white', borderBottom: '1px solid #EBEBEB' }} className="px-6 py-5">
-          <div className="max-w-6xl mx-auto flex items-center justify-between">
-            <Link href="/" style={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none' }}>
-              <svg height="38" viewBox="0 0 340 78" role="img" style={{ display: 'block' }}>
-                <title>SJ Remote Solutions</title>
-                <style>{`.npf{font-family:'Playfair Display',Georgia,serif}`}</style>
-                <text x="26" y="62" className="npf" fontSize="70" fontWeight="700" fill="#2E2E2E" letterSpacing="-3" textAnchor="start">SJ</text>
-                <line x1="16" y1="70" x2="84" y2="70" stroke="#3DCFBF" strokeWidth="2.5" strokeLinecap="round"/>
-                <line x1="96" y1="12" x2="96" y2="66" stroke="#EBEBEB" strokeWidth="1"/>
-                <text x="108" y="37" className="npf" fontSize="21" fontWeight="700" fill="#2E2E2E" letterSpacing="3" textAnchor="start">REMOTE</text>
-                <text x="108" y="62" className="npf" fontSize="21" fontWeight="700" fill="#3DCFBF" letterSpacing="1.5" textAnchor="start">SOLUTIONS</text>
-              </svg>
-            </Link>
-            <div className="flex items-center gap-6">
-              <Link href="/login" className="text-sm font-medium" style={{ color: '#6B6B6B', letterSpacing: '0.01em' }}>Sign in</Link>
-              <Link href="/register" className="btn-primary text-sm">Get started free</Link>
-            </div>
+          <div className="max-w-6xl mx-auto flex items-center justify-end gap-6">
+            <Link href="/login" className="text-sm font-medium" style={{ color: '#6B6B6B', letterSpacing: '0.01em' }}>Sign in</Link>
+            <Link href="/register" className="btn-primary text-sm">Get started free</Link>
           </div>
         </nav>
 
@@ -41,6 +28,20 @@ export default function Home() {
         <section className="px-6 pt-10 pb-14" style={{ background: 'white' }}>
           <div className="max-w-4xl mx-auto text-center">
 
+            <div style={{ marginBottom: '2rem' }}>
+              <svg width="100%" viewBox="0 0 680 320" role="img" style={{ maxWidth: 560, margin: '0 auto', display: 'block' }}>
+                <title>SJ Remote Solutions</title>
+                <style>{`@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&display=swap');.pf{font-family:'Playfair Display',Georgia,serif}`}</style>
+                <line x1="240" y1="52" x2="460" y2="52" stroke="#3DCFBF" strokeWidth="1.5" opacity="0.5"/>
+                <text x="82" y="255" className="pf" fontSize="220" fontWeight="700" fill="#2E2E2E" letterSpacing="-8" textAnchor="middle">SJ</text>
+                <line x1="40" y1="270" x2="168" y2="270" stroke="#3DCFBF" strokeWidth="3" strokeLinecap="round"/>
+                <line x1="198" y1="80" x2="198" y2="265" stroke="#EBEBEB" strokeWidth="1"/>
+                <text x="224" y="158" className="pf" fontSize="58" fontWeight="700" fill="#2E2E2E" letterSpacing="6" textAnchor="start">REMOTE</text>
+                <text x="224" y="228" className="pf" fontSize="58" fontWeight="700" fill="#3DCFBF" letterSpacing="3" textAnchor="start">SOLUTIONS</text>
+                <line x1="240" y1="278" x2="460" y2="278" stroke="#3DCFBF" strokeWidth="1.5" opacity="0.5"/>
+                <text x="224" y="302" className="pf" fontSize="13" fontWeight="400" fill="#9B9B9B" letterSpacing="3" textAnchor="start" fontStyle="italic">AI Governance &amp; Compliance</text>
+              </svg>
+            </div>
             <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(2.25rem, 5vw, 3.5rem)', fontWeight: 500, color: '#2E2E2E', lineHeight: 1.15, letterSpacing: '-0.02em', marginBottom: '1.5rem' }}>
               Is your AI hiring process<br />
               <em style={{ color: '#3DCFBF', fontStyle: 'italic' }}>ICO compliant?</em>
