@@ -86,18 +86,26 @@ export default function Dashboard() {
         <BetaBanner />
 
         {/* NAV */}
-        <nav className="bg-white border-b border-gray-100 px-6 py-4">
-          <div className="max-w-5xl mx-auto flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-teal-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">SJ</span>
-              </div>
-              <div>
-                <div className="font-semibold text-gray-900 text-sm">{agency?.company_name || 'My Dashboard'}</div>
-                <div className="text-xs text-gray-500">AI Compliance Dashboard</div>
+        <nav style={{background:'white',borderBottom:'1px solid #EBEBEB',padding:'0.875rem 1.5rem'}}>
+          <div style={{maxWidth:'72rem',margin:'0 auto',display:'flex',alignItems:'center',justifyContent:'space-between'}}>
+            <div style={{display:'flex',alignItems:'center',gap:'1.5rem'}}>
+              <Link href="/" style={{display:'inline-block',textDecoration:'none'}}>
+                <svg height="32" viewBox="0 0 340 78" role="img" style={{display:'block'}}>
+                  <title>SJ Remote Solutions</title>
+                  <style>{`.npf{font-family:'Playfair Display',Georgia,serif}`}</style>
+                  <text x="26" y="62" className="npf" fontSize="70" fontWeight="700" fill="#2E2E2E" letterSpacing="-3" textAnchor="start">SJ</text>
+                  <line x1="16" y1="70" x2="84" y2="70" stroke="#3DCFBF" strokeWidth="2.5" strokeLinecap="round"/>
+                  <line x1="96" y1="12" x2="96" y2="66" stroke="#EBEBEB" strokeWidth="1"/>
+                  <text x="108" y="37" className="npf" fontSize="21" fontWeight="700" fill="#2E2E2E" letterSpacing="3" textAnchor="start">REMOTE</text>
+                  <text x="108" y="62" className="npf" fontSize="21" fontWeight="700" fill="#3DCFBF" letterSpacing="1.5" textAnchor="start">SOLUTIONS</text>
+                </svg>
+              </Link>
+              <div style={{borderLeft:'1px solid #EBEBEB',paddingLeft:'1.5rem'}}>
+                <div style={{fontWeight:600,color:'#2E2E2E',fontSize:'0.875rem'}}>{agency?.company_name || 'My Dashboard'}</div>
+                <div style={{fontSize:'0.75rem',color:'#9B9B9B'}}>AI Compliance Dashboard</div>
               </div>
             </div>
-            <button onClick={signOut} className="text-sm text-gray-500 hover:text-gray-700">Sign out</button>
+            <button onClick={signOut} style={{fontSize:'0.875rem',color:'#9B9B9B',background:'none',border:'none',cursor:'pointer',fontFamily:'inherit'}}>Sign out</button>
           </div>
         </nav>
 
@@ -332,19 +340,7 @@ export default function Dashboard() {
             </>
           )}
 
-          {/* GET HELP CTA — always visible */}
-          <div className="card bg-teal-500 border-0 text-white mt-6">
-            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-              <div>
-                <h3 className="font-bold text-lg mb-1">Ready to fix these gaps?</h3>
-                <p className="text-teal-100 text-sm">SJ Remote Solutions offers affordable, plain-English compliance support specifically for UK recruitment agencies.</p>
-              </div>
-              <a href="mailto:stephanie@sjremotesolutions.co.uk?subject=Compliance support enquiry"
-                className="bg-white text-teal-600 font-semibold py-3 px-6 rounded-xl hover:bg-teal-50 transition-all whitespace-nowrap flex-shrink-0">
-                Get in touch →
-              </a>
-            </div>
-          </div>
+
 
         </div>
       </div>
