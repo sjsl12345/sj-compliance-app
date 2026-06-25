@@ -18,28 +18,29 @@ export default function Home() {
 
         {/* NAV */}
         <nav style={{ background: 'white', borderBottom: '1px solid #EBEBEB' }} className="px-6 py-5">
-          <div className="max-w-6xl mx-auto flex items-center justify-end gap-6">
-            <Link href="/login" className="text-sm font-medium" style={{ color: '#6B6B6B', letterSpacing: '0.01em' }}>Sign in</Link>
-            <Link href="/register" className="btn-primary text-sm">Get started free</Link>
+          <div className="max-w-6xl mx-auto flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: '#2E2E2E' }}>
+                <span className="text-white font-semibold text-xs tracking-wider">SJ</span>
+              </div>
+              <div>
+                <div className="font-semibold text-sm tracking-tight" style={{ color: '#2E2E2E', fontFamily: "'Playfair Display', serif" }}>SJ Remote Solutions</div>
+                <div className="text-xs" style={{ color: '#9B9B9B', letterSpacing: '0.04em' }}>AI Governance & Compliance</div>
+              </div>
+            </div>
+            <div className="flex items-center gap-6">
+              <Link href="/login" className="text-sm font-medium" style={{ color: '#6B6B6B', letterSpacing: '0.01em' }}>Sign in</Link>
+              <Link href="/register" className="btn-primary text-sm">Get started free</Link>
+            </div>
           </div>
         </nav>
 
         {/* HERO */}
-        <section className="px-6 pt-24 pb-20" style={{ background: 'white' }}>
+        <section className="px-6 pt-10 pb-14" style={{ background: 'white' }}>
           <div className="max-w-4xl mx-auto text-center">
-            <div style={{ marginBottom: '2rem' }}>
-              <svg width="100%" viewBox="0 0 680 320" role="img" style={{ maxWidth: 580, margin: '0 auto', display: 'block' }}>
-                <title>SJ Remote Solutions</title>
-                <style>{`@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&display=swap');.pf{font-family:'Playfair Display',Georgia,serif}`}</style>
-                <line x1="240" y1="52" x2="460" y2="52" stroke="#3DCFBF" strokeWidth="1.5" opacity="0.5"/>
-                <text x="82" y="255" className="pf" fontSize="220" fontWeight="700" fill="#2E2E2E" letterSpacing="-8" textAnchor="middle">SJ</text>
-                <line x1="40" y1="270" x2="168" y2="270" stroke="#3DCFBF" strokeWidth="3" strokeLinecap="round"/>
-                <line x1="198" y1="80" x2="198" y2="265" stroke="#EBEBEB" strokeWidth="1"/>
-                <text x="224" y="158" className="pf" fontSize="58" fontWeight="700" fill="#2E2E2E" letterSpacing="6" textAnchor="start">REMOTE</text>
-                <text x="224" y="228" className="pf" fontSize="58" fontWeight="700" fill="#3DCFBF" letterSpacing="3" textAnchor="start">SOLUTIONS</text>
-                <line x1="240" y1="278" x2="460" y2="278" stroke="#3DCFBF" strokeWidth="1.5" opacity="0.5"/>
-                <text x="224" y="302" className="pf" fontSize="13" fontWeight="400" fill="#9B9B9B" letterSpacing="3" textAnchor="start" fontStyle="italic">AI Governance &amp; Compliance</text>
-              </svg>
+            <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-medium mb-10 tracking-widest uppercase" style={{ background: '#F2F2F2', color: '#6B6B6B', letterSpacing: '0.1em' }}>
+              <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#3DCFBF' }}></span>
+              Free · Built for UK Recruitment Agencies
             </div>
             <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(2.25rem, 5vw, 3.5rem)', fontWeight: 500, color: '#2E2E2E', lineHeight: 1.15, letterSpacing: '-0.02em', marginBottom: '1.5rem' }}>
               Is your AI hiring process<br />
