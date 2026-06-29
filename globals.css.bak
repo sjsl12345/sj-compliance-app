@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --porcelain: #F8F6F3;
+  --porcelain-dark: #F0EDE8;
+  --fog: #8E8E93;
+  --fog-light: #C7C7CC;
+  --fog-dark: #48484A;
+  --blush: #E8D5D0;
+  --blush-light: #F5EDEB;
+  --blush-dark: #C9A89F;
+  --teal: #2A9D8F;
+  --teal-light: #E8F4F3;
+  --teal-dark: #1E7268;
+  --ink: #2C2C2E;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background-color: var(--porcelain);
+  color: var(--ink);
+}
+
+.gradient-bg {
+  background: linear-gradient(145deg, var(--porcelain) 0%, var(--blush-light) 50%, var(--porcelain-dark) 100%);
+}
+
+.card {
+  @apply rounded-2xl p-6;
+  background: #FFFFFF;
+  border: 1px solid #EDE8E3;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03);
+}
+
+.btn-primary {
+  background: var(--teal);
+  color: white;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--teal-dark);
+  letter-spacing: 0.01em;
+}
+
+.btn-primary:hover {
+  background: var(--teal-dark);
+}
+
+.btn-secondary {
+  background: white;
+  color: var(--fog-dark);
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid #EDE8E3;
+}
+
+.btn-secondary:hover {
+  background: var(--porcelain);
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #DDD8D2;
+  border-radius: 0.75rem;
+  outline: none;
+  transition: all 0.2s;
+  color: var(--ink);
+  background: white;
+  font-family: inherit;
+}
+
+.input:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px var(--teal-light);
+}
+
+.label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--fog-dark);
+  margin-bottom: 0.25rem;
+}
+
+.badge-red {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  background: #FAE8E6;
+  color: #8B2E26;
+  border: 1px solid #F0C5BF;
+}
+
+.badge-amber {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  background: #FAF0E4;
+  color: #7A4E1A;
+  border: 1px solid #EDD9B8;
+}
+
+.badge-green {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  background: var(--teal-light);
+  color: var(--teal-dark);
+  border: 1px solid #B8DDD9;
+}
