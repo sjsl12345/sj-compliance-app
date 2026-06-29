@@ -1,0 +1,1 @@
+{"/_app":"pages/_app.js","/_error":"pages/_error.js","/admin":"pages/admin.html","/dashboard":"pages/dashboard.html","/audit":"pages/audit.html","/duaa":"pages/duaa.html","/":"pages/index.html","/login":"pages/login.html","/register":"pages/register.html","/_document":"pages/_document.js","/404":"pages/404.html"}
