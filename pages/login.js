@@ -27,7 +27,7 @@ export default function Login() {
       const { error } = await supabase.auth.signInWithPassword({ email: form.email, password: form.password })
       if (error) throw error
       if (form.email === 'stephanie@sjremotesolutions.co.uk') router.push('/admin')
-      else router.push('/dashboard')
+      else router.push('/portal')
     } catch {
       setError('Invalid email or password. Please try again.')
     } finally {
