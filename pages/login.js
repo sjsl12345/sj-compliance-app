@@ -109,8 +109,8 @@ export default function Login() {
                     </button>
                   </form>
                   <p style={{ textAlign: 'center', fontSize: '0.8rem', color: '#9B9B9B', marginTop: '1.5rem' }}>
-                    Don&apos;t have an account?{' '}
-                    <Link href="/register" style={{ color: '#6F5C9C', fontWeight: 500, textDecoration: 'none' }}>Get started</Link>
+                    New here?{' '}
+                    <a href="https://sjremotesolutions.co.uk/risk-check.html" style={{ color: '#6F5C9C', fontWeight: 500, textDecoration: 'none' }}>Start your free check</a>
                   </p>
                 </>
               ) : (
