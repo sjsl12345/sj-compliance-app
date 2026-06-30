@@ -2,6 +2,7 @@ import Head from 'next/head'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { supabase } from '../lib/supabase'
+import BetaBanner from '../components/BetaBanner'
 
 export default function Admin() {
   const router = useRouter()
