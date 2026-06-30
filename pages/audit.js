@@ -7,8 +7,8 @@ import { supabase } from '../lib/supabase'
 import { AUDIT_QUESTIONS, calculateScore, getSectionScores } from '../lib/questions'
 import { DUAA_QUESTIONS, calculateDUAAScore } from '../lib/duaa-questions'
 
-const PF = { fontFamily: "'Playfair Display', Georgia, serif" }
-const DM = { fontFamily: "'DM Sans', 'Segoe UI', sans-serif" }
+const PF = { fontFamily: "'Spectral', Georgia, serif" }
+const DM = { fontFamily: "'Inter', 'Segoe UI', sans-serif" }
 
 const ALL_QUESTIONS = [
   ...AUDIT_QUESTIONS.map(q => ({ ...q, module: 'ICO ADM' })),
@@ -23,12 +23,12 @@ function NavLogo() {
     <Link href="/" style={{ display: 'inline-block', textDecoration: 'none' }}>
       <svg height="32" viewBox="0 0 340 78" role="img" style={{ display: 'block' }}>
         <title>SJ Remote Solutions</title>
-        <style>{`.npf{font-family:'Playfair Display',Georgia,serif}`}</style>
+        <style>{`.npf{font-family:'Spectral',Georgia,serif}`}</style>
         <text x="26" y="62" className="npf" fontSize="70" fontWeight="700" fill="#2E2E2E" letterSpacing="-3" textAnchor="start">SJ</text>
-        <line x1="16" y1="70" x2="84" y2="70" stroke="#3DCFBF" strokeWidth="2.5" strokeLinecap="round"/>
+        <line x1="16" y1="70" x2="84" y2="70" stroke="#6F5C9C" strokeWidth="2.5" strokeLinecap="round"/>
         <line x1="96" y1="12" x2="96" y2="66" stroke="#EBEBEB" strokeWidth="1"/>
         <text x="108" y="37" className="npf" fontSize="21" fontWeight="700" fill="#2E2E2E" letterSpacing="3" textAnchor="start">REMOTE</text>
-        <text x="108" y="62" className="npf" fontSize="21" fontWeight="700" fill="#3DCFBF" letterSpacing="1.5" textAnchor="start">SOLUTIONS</text>
+        <text x="108" y="62" className="npf" fontSize="21" fontWeight="700" fill="#6F5C9C" letterSpacing="1.5" textAnchor="start">SOLUTIONS</text>
       </svg>
     </Link>
   )
@@ -116,7 +116,7 @@ export default function Audit() {
         percentage: duaaResult.percentage, risk_level: duaaResult.riskLevel, completed: true,
       })
       if (duaaError) throw duaaError
-      router.push('/dashboard')
+      router.push('/portal')
     } catch (err) {
       alert('Error: ' + (err.message || JSON.stringify(err)))
       setSaving(false)
@@ -126,7 +126,7 @@ export default function Audit() {
   if (loading) return (
     <div style={{ minHeight: '100vh', background: '#FAFAF9', display: 'flex', alignItems: 'center', justifyContent: 'center', ...DM }}>
       <div style={{ textAlign: 'center' }}>
-        <div style={{ width: 32, height: 32, border: '2px solid #3DCFBF', borderTopColor: 'transparent', borderRadius: '50%', animation: 'spin 0.8s linear infinite', margin: '0 auto 1rem' }} />
+        <div style={{ width: 32, height: 32, border: '2px solid #6F5C9C', borderTopColor: 'transparent', borderRadius: '50%', animation: 'spin 0.8s linear infinite', margin: '0 auto 1rem' }} />
         <p style={{ color: '#9B9B9B', fontSize: '0.9rem' }}>Loading…</p>
       </div>
     </div>
@@ -135,7 +135,7 @@ export default function Audit() {
   if (saving) return (
     <div style={{ minHeight: '100vh', background: '#FAFAF9', display: 'flex', alignItems: 'center', justifyContent: 'center', ...DM }}>
       <div style={{ textAlign: 'center' }}>
-        <div style={{ width: 32, height: 32, border: '2px solid #3DCFBF', borderTopColor: 'transparent', borderRadius: '50%', animation: 'spin 0.8s linear infinite', margin: '0 auto 1rem' }} />
+        <div style={{ width: 32, height: 32, border: '2px solid #6F5C9C', borderTopColor: 'transparent', borderRadius: '50%', animation: 'spin 0.8s linear infinite', margin: '0 auto 1rem' }} />
         <p style={{ color: '#9B9B9B', fontSize: '0.9rem' }}>Saving your results…</p>
       </div>
     </div>
@@ -143,7 +143,7 @@ export default function Audit() {
 
   if (!question) return null
 
-  const moduleColor = question?.module === 'DUAA 2025' ? '#FFB3BC' : '#3DCFBF'
+  const moduleColor = question?.module === 'DUAA 2025' ? '#FFB3BC' : '#6F5C9C'
   const moduleBg = question?.module === 'DUAA 2025' ? '#FFF0F2' : '#EAF8F6'
   const moduleTextColor = question?.module === 'DUAA 2025' ? '#7A4A50' : '#1A7A6E'
 
@@ -156,7 +156,7 @@ export default function Audit() {
           <div style={{ maxWidth: 700, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <NavLogo />
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              <button onClick={() => saveProgress(answers)} style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '0.8rem', color: progressSaved ? '#3DCFBF' : '#9B9B9B', fontFamily: 'inherit' }}>
+              <button onClick={() => saveProgress(answers)} style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '0.8rem', color: progressSaved ? '#6F5C9C' : '#9B9B9B', fontFamily: 'inherit' }}>
                 {savingProgress ? 'Saving…' : progressSaved ? '✓ Saved' : '💾 Save & exit later'}
               </button>
               <span style={{ fontSize: '0.8rem', color: '#9B9B9B' }}>{currentQ + 1} of {TOTAL}</span>
@@ -164,13 +164,13 @@ export default function Audit() {
           </div>
         </div>
         <div style={{ height: 4, background: '#F2F2F2', display: 'flex' }}>
-          <div style={{ height: 4, background: '#3DCFBF', width: `${Math.min(currentQ, ADM_COUNT) / ADM_COUNT * 50}%`, transition: 'width 0.3s' }} />
+          <div style={{ height: 4, background: '#6F5C9C', width: `${Math.min(currentQ, ADM_COUNT) / ADM_COUNT * 50}%`, transition: 'width 0.3s' }} />
           <div style={{ height: 4, background: '#F2F2F2', width: '50%', position: 'relative' }}>
             <div style={{ height: 4, background: '#FFB3BC', width: `${Math.max(0, (currentQ - ADM_COUNT)) / (TOTAL - ADM_COUNT) * 100}%`, transition: 'width 0.3s' }} />
           </div>
         </div>
         <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0.3rem 1.5rem', background: 'white', borderBottom: '1px solid #EBEBEB' }}>
-          <span style={{ fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: currentQ < ADM_COUNT ? '#3DCFBF' : '#BEBEBE' }}>
+          <span style={{ fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: currentQ < ADM_COUNT ? '#6F5C9C' : '#BEBEBE' }}>
             Part 1 — ICO ADM ({Math.min(currentQ + 1, ADM_COUNT)}/{ADM_COUNT})
           </span>
           <span style={{ fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: currentQ >= ADM_COUNT ? '#FFB3BC' : '#BEBEBE' }}>
@@ -203,7 +203,7 @@ export default function Audit() {
           )}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.625rem' }}>
             {[
-              { value: 'yes', label: 'Yes — we do this / have this in place', accent: '#3DCFBF', bg: '#EAF8F6', textCol: '#1A4A44' },
+              { value: 'yes', label: 'Yes — we do this / have this in place', accent: '#6F5C9C', bg: '#EAF8F6', textCol: '#1A4A44' },
               { value: 'no', label: "No — we don't do this / don't have this", accent: '#E8909A', bg: '#FFF0F2', textCol: '#5A2030' },
               { value: 'unsure', label: "Not sure — I'm not certain either way", accent: '#C0C0C0', bg: '#F5F5F5', textCol: '#4A4A4A' },
             ].map(opt => {
@@ -228,7 +228,7 @@ export default function Audit() {
             {currentQ > 0 ? (
               <button onClick={() => setCurrentQ(q => q - 1)} style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '0.85rem', color: '#9B9B9B', fontFamily: 'inherit' }}>← Back</button>
             ) : <span />}
-            <button onClick={() => saveProgress(answers)} style={{ background: 'none', border: '1px solid #EBEBEB', borderRadius: 8, cursor: 'pointer', fontSize: '0.8rem', color: progressSaved ? '#3DCFBF' : '#9B9B9B', fontFamily: 'inherit', padding: '0.4rem 0.875rem' }}>
+            <button onClick={() => saveProgress(answers)} style={{ background: 'none', border: '1px solid #EBEBEB', borderRadius: 8, cursor: 'pointer', fontSize: '0.8rem', color: progressSaved ? '#6F5C9C' : '#9B9B9B', fontFamily: 'inherit', padding: '0.4rem 0.875rem' }}>
               {progressSaved ? '✓ Progress saved' : 'Save & continue later'}
             </button>
           </div>

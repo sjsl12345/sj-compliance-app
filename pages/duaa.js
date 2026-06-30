@@ -110,7 +110,7 @@ export default function DUAAaudit() {
             <button onClick={() => setStep(1)} className="btn-primary w-full text-center">
               Start DUAA check →
             </button>
-            <button onClick={() => router.push('/dashboard')} className="mt-3 text-sm text-gray-500 hover:text-gray-700 w-full text-center">
+            <button onClick={() => router.push('/portal')} className="mt-3 text-sm text-gray-500 hover:text-gray-700 w-full text-center">
               ← Back to dashboard
             </button>
           </div>

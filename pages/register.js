@@ -5,8 +5,8 @@ import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { supabase } from '../lib/supabase'
 
-const PF = { fontFamily: "'Playfair Display', Georgia, serif" }
-const DM = { fontFamily: "'DM Sans', 'Segoe UI', sans-serif" }
+const PF = { fontFamily: "'Spectral', Georgia, serif" }
+const DM = { fontFamily: "'Inter', 'Segoe UI', sans-serif" }
 
 export default function Register() {
   const router = useRouter()
@@ -83,7 +83,7 @@ export default function Register() {
               </form>
               <p style={{ textAlign: 'center', fontSize: '0.85rem', color: '#9B9B9B' }}>
                 Already have an account?{' '}
-                <Link href="/login" style={{ color: '#3DCFBF', fontWeight: 500, textDecoration: 'none' }}>Sign in</Link>
+                <Link href="/login" style={{ color: '#6F5C9C', fontWeight: 500, textDecoration: 'none' }}>Sign in</Link>
               </p>
               <p style={{ textAlign: 'center', fontSize: '0.75rem', color: '#BEBEBE', marginTop: '1rem', lineHeight: 1.6 }}>
                 By registering you agree that SJ Remote Solutions may contact you about your compliance results. Your data is stored securely and never shared with third parties.
