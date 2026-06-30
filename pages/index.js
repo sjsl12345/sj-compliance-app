@@ -46,7 +46,7 @@ export default function Home() {
             <div style={{ marginTop:"1.75rem", padding:"1rem", background:"rgba(111,92,156,0.06)", borderRadius:10 }}>
               <p style={{ fontSize:"0.78rem", color:"#9B9B9B", lineHeight:1.65 }}>
                 🔒 Secure · UK-hosted · End-to-end encrypted<br/>
-                Not a client yet? <a href="https://sjremotesolutions.co.uk/booking" style={{ color:"#6F5C9C", fontWeight:500 }}>Book a discovery call →</a>
+                Not a client yet? <a href="https://sjremotesolutions.co.uk/booking.html" style={{ color:"#6F5C9C", fontWeight:500 }}>Book a discovery call →</a>
               </p>
             </div>
           </div>

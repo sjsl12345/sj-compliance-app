@@ -1,0 +1,26 @@
+From b2f15c348ef4614bbc636f107176310f5f3737d2 Mon Sep 17 00:00:00 2001
+From: Claude <claude@anthropic.com>
+Date: Tue, 30 Jun 2026 09:42:37 +0000
+Subject: [PATCH] Fix broken booking link on portal landing page
+
+Point to /booking.html explicitly instead of the clean URL /booking to avoid relying on Cloudflare Pages URL rewriting
+---
+ pages/index.js | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/pages/index.js b/pages/index.js
+index 8d724ac..f9ee7cc 100644
+--- a/pages/index.js
++++ b/pages/index.js
+@@ -46,7 +46,7 @@ export default function Home() {
+             <div style={{ marginTop:"1.75rem", padding:"1rem", background:"rgba(111,92,156,0.06)", borderRadius:10 }}>
+               <p style={{ fontSize:"0.78rem", color:"#9B9B9B", lineHeight:1.65 }}>
+                 🔒 Secure · UK-hosted · End-to-end encrypted<br/>
+-                Not a client yet? <a href="https://sjremotesolutions.co.uk/booking" style={{ color:"#6F5C9C", fontWeight:500 }}>Book a discovery call →</a>
++                Not a client yet? <a href="https://sjremotesolutions.co.uk/booking.html" style={{ color:"#6F5C9C", fontWeight:500 }}>Book a discovery call →</a>
+               </p>
+             </div>
+           </div>
+-- 
+2.43.0
+
